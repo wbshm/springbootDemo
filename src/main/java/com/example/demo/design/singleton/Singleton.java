@@ -1,4 +1,4 @@
-package com.example.demo.design;
+package com.example.demo.design.singleton;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

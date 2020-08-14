@@ -18,7 +18,7 @@ public class CyclicBarrierExample {
         final int totalThread = 10;
         CyclicBarrier barrier = new CyclicBarrier(totalThread);
         ExecutorService exec = Executors.newCachedThreadPool();
-        for (int i = 0; i < totalThread; i++) {
+        for (int i = 0; i < totalThread - 1; i++) {
             exec.execute(() -> {
                 System.out.println("before");
                 try {

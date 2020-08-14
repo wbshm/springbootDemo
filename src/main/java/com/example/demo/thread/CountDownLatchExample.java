@@ -5,7 +5,6 @@ import com.sun.org.apache.xpath.internal.operations.String;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @ClassName CountDownLatchExample
