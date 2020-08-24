@@ -13,7 +13,7 @@ public class Singleton {
     /**
      * 懒汉模式
      */
-    private static Singleton singleton;
+    private static volatile Singleton singleton;
 
     private Singleton() {
         System.out.println("create");

@@ -25,6 +25,7 @@ public class MyJdbc {
                 int gender = rs.getInt(4);
                 System.out.println(id + "," + grade + "," + name + "," + gender + ";");
             }
+            conn.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
