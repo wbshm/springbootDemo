@@ -37,12 +37,28 @@ public class FindItinerary {
         String start = "JFK";
         res.add(start);
         List<String> doit = doit(res, journey, start);
-        while (Objects.isNull(doit)) {
+        List<String> tmp;
+        while (!properlyList.isEmpty()) {
             ArrayList<String> list = properlyList.pop();
             HashMap<String, ArrayList<String>> map = properlyMap.pop();
             start = list.get(list.size() - 1);
-            doit = doit(list, map, start);
+            tmp = doit(list, map, start);
+            if (tmp == null) {
+                continue;
+            }
+            System.out.println(tmp);
+            if (doit == null) {
+                doit = tmp;
+                continue;
+            }
+            for (int i = 0; i < tmp.size(); i++) {
+                if (tmp.get(i).compareTo(doit.get(i)) != 0) {
+                    doit = tmp.get(i).compareTo(doit.get(i)) > 0 ? doit : tmp;
+                    break;
+                }
+            }
         }
+        System.out.println(doit);
         return doit;
     }
 
@@ -53,6 +69,7 @@ public class FindItinerary {
             if (Objects.isNull(list)) {
                 return null;
             }
+            Collections.sort(list);
             if (list.size() == 1) {
                 map.remove(start);
                 start = list.get(0);
@@ -69,7 +86,7 @@ public class FindItinerary {
                             pop = list.remove(i);
                             map.put(start, list);
                             start = pop;
-                            res.add(start);
+                            res.add(pop);
                             check = true;
                         } else {
                             ArrayList<String> cpList2 = new ArrayList<>(cpList);
@@ -115,7 +132,7 @@ public class FindItinerary {
         List<String> solution = findItinerary(tickets);
         List<String> res = new ArrayList<>(Arrays.asList("JFK", "AXA", "AUA", "ADL", "ANU", "AUA", "ANU", "EZE", "ADL", "EZE", "ANU", "JFK", "AXA", "EZE", "TIA", "AUA", "AXA", "TIA", "ADL", "EZE", "HBA"));
 //        res = new ArrayList<>(Arrays.asList("JFK", "AXA", "AUA", "ADL", "ANU", "AUA", "ANU", "EZE", "ADL", "EZE", "TIA", "AUA", "AXA", "EZE", "ANU", "JFK", "AXA", "TIA", "ADL", "EZE", "HBA"));
-        System.out.println(solution);
+        System.err.println(res);
         assert solution.equals(res);
     }
 }
