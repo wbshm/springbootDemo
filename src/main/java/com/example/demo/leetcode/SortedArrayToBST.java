@@ -28,25 +28,25 @@ public class SortedArrayToBST {
         return root;
     }
 
+    private class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) {
+            val = x;
+        }
+
+        @Override
+        public String toString() {
+            return "{" + val + "[" + left + "," + right + "]}";
+        }
+    }
+
 
     @Test
     public void test() {
         TreeNode treeNode = sortedArrayToBST(new int[]{1, 2, 3, 4, 5, 6});
         System.out.println(treeNode);
-    }
-}
-
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode(int x) {
-        val = x;
-    }
-
-    @Override
-    public String toString() {
-        return "{" + val + "[" + left + "," + right + "]}";
     }
 }
