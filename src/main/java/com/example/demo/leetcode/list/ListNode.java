@@ -18,6 +18,9 @@ public class ListNode {
 
     @Override
     public String toString() {
-        return val + "" + next;
+        if (next == null) {
+            return val + "";
+        }
+        return val + "->" + next;
     }
 }
