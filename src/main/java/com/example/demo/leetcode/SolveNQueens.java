@@ -44,7 +44,6 @@ public class SolveNQueens {
                 }
             }
         }
-        List<List<String>> lists = formatRes(finished);
         return formatRes(finished);
     }
 
@@ -87,6 +86,7 @@ public class SolveNQueens {
 
     @Test
     public void test() {
-        solveNQueens(4);
+        List<List<String>> lists = solveNQueens(4);
+        System.out.println(lists);
     }
 }
